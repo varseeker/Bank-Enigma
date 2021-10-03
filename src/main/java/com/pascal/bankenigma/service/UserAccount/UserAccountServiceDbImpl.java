@@ -10,6 +10,8 @@ import com.pascal.bankenigma.service.UserData.UserDataServiceDbImpl;
 import com.pascal.bankenigma.service.UserDetailServiceDbImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -36,6 +38,9 @@ public class UserAccountServiceDbImpl implements UserAccountService{
 
     @Autowired
     AuthenticationManager authenticationManager;
+
+    @Autowired
+    JavaMailSender javaMailSender;
 
     @Autowired
     JwtTokenUtil jwtTokenUtil;
@@ -84,17 +89,24 @@ public class UserAccountServiceDbImpl implements UserAccountService{
 
     }
 
-    public Map<String, Object> signIn(UserCredentials userCredentials){
-        UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(userCredentials.getUserName(), userCredentials.getPassword());
+    public Map<String, Object> signIn(UserAccount userAccount){
+        UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(userAccount.getUserName(), userAccount.getPassword());
 
         authenticationManager.authenticate(usernamePasswordAuthenticationToken);
 
-        UserDetails userDetails = userDetailServiceDb.loadUserByUsername(userCredentials.getUserName());
+        UserDetails userDetails = userDetailServiceDb.loadUserByUsername(userAccount.getUserName());
 
         String token = jwtTokenUtil.generateToken(userDetails);
 
         Map<String, Object> tokenWrapper = new HashMap<>();
         tokenWrapper.put("token", token);
+
+        SimpleMailMessage mail = new SimpleMailMessage();
+        mail.setTo(userAccount.getEmail());
+        mail.setSubject("AUTHENTICATION TOKEN FOR ENIGMA BANK");
+        mail.setText(token);
+
+        javaMailSender.send(mail);
 
         return tokenWrapper;
     }

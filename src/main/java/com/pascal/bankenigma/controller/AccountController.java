@@ -35,8 +35,8 @@ public class AccountController {
     }
 
     @PostMapping("/signin")
-    public Map<String, Object> signInAccount(@RequestBody UserCredentials userCredentials){
-        return userAccountServiceDb.signIn(userCredentials);
+    public Map<String, Object> signInAccount(@RequestBody UserAccount userAccount){
+        return userAccountServiceDb.signIn(userAccount);
     }
 
 }
