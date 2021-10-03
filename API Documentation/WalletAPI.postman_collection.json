@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "32731849-a39e-4d00-a8d5-6ae51bc9586a",
+		"name": "WalletAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllWallets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8084/wallets",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"wallets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createNewWallet",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwidXNlck5hbWUiOiJheWF0byIsInN1YiI6ImF5YXRvIiwiaWF0IjoxNjMzMTg2MjE4LCJleHAiOjE2MzMxODg2MTh9.PybG8fVeuIk8tF1Sn8tUvsGHVn_H09noeqFavnp__TfBn5xzi9b3vRTFUbuIEWitd-s1OcLc39TEmiCsYRIHkg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"providerName\":\"DANA\",\n    \"balance\":50000,\n    \"userDataId\":\"8a8ab2a17c407e53017c407ee9a50000\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8084/wallet",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"wallet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "featureOnWallets",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwidXNlck5hbWUiOiJheWF0byIsInN1YiI6ImF5YXRvIiwiaWF0IjoxNjMzMjM3MTcyLCJleHAiOjE2MzMyNDAxNzJ9.bH-_oJUKdIwsdAAXtaXkxPell3TeoQ9AzXV0UK4e6qM99CP58XRBJOyogOwWECwPrDS0OyYeN8mqNQy9-r-jlg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"walletId\":\"8a8ab2a17c417d68017c417da0b90000\",\n    \"method\":\"TopUp\",\n    \"balance\":50000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8084/menu",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"menu"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

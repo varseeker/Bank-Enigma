@@ -1,0 +1,108 @@
+{
+	"info": {
+		"_postman_id": "9d0ef65c-c1a9-4af8-9987-3893308d67a3",
+		"name": "TransactionAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllTransaction",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwidXNlck5hbWUiOiJheWF0byIsInN1YiI6ImF5YXRvIiwiaWF0IjoxNjMzMjQyNzEyLCJleHAiOjE2MzMyNDU3MTJ9.bgu4TKG-R7Pk4-mn9CeXTF6NrImdh7kYuBPmN2wRerDu9QD-8jyU6Wr3ZhUYcgbn0hYOs2DX3iMkyu1S71a7mQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8084/transactions",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createTransaction",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwidXNlck5hbWUiOiJheWF0byIsInN1YiI6ImF5YXRvIiwiaWF0IjoxNjMzMjM5MzYwLCJleHAiOjE2MzMyNDIzNjB9.JuWoiN0ieQYdZtOV0JWt7ccqLFgqChCA8iqZW7ziszOYzJ7E61drniP-emwBz7i6XMH3SSQmZHEDFjAi15ic7Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userDataId\":\"8a8ab2a17c407e53017c407ee9a50000\",\n    \"walletId\":\"8a8ab2a17c417d68017c417da0b90000\",\n    \"merchantId\":\"8a8ab2a17c447637017c44865aef0000\",\n    \"bill\":50000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8084/transaction",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "paymentTransaction",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwidXNlck5hbWUiOiJheWF0byIsInN1YiI6ImF5YXRvIiwiaWF0IjoxNjMzMjU1NTQxLCJleHAiOjE2MzMyNTg1NDF9.Qp2-zK5RqWcgvE2oARTs-1o4NblA18FAkablDBVd61I8JJbbgDTxN-PR1PhWOo0-O_niFZwcsNO9zI6CzrPWuA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8084/transaction?id=8a8ab2a17c44a0cc017c44a819490000",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"transaction"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "8a8ab2a17c44a0cc017c44a819490000"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -36,6 +36,9 @@ public class MerchantServiceDbImpl implements MerchantService{
 
     @Override
     public Merchant createData(Merchant merchant) {
+        if (merchantRepository.existsByName(merchant.getName())){
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Already Have Merchant with that name, please use another name");
+        }
         return merchantRepository.save(merchant);
     }
 

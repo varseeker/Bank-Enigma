@@ -1,0 +1,37 @@
+{
+	"info": {
+		"_postman_id": "ae923c30-7357-4cf0-812d-87c0eeca1477",
+		"name": "LogHistoryAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllLogHistory",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwidXNlck5hbWUiOiJheWF0byIsInN1YiI6ImF5YXRvIiwiaWF0IjoxNjMzMjQyNzEyLCJleHAiOjE2MzMyNDU3MTJ9.bgu4TKG-R7Pk4-mn9CeXTF6NrImdh7kYuBPmN2wRerDu9QD-8jyU6Wr3ZhUYcgbn0hYOs2DX3iMkyu1S71a7mQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8084/logs",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"logs"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

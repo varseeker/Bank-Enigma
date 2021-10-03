@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "cf93c79a-286e-4e54-94ff-95cbe0d208a2",
+		"name": "UserDataAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllUsers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwidXNlck5hbWUiOiJheWF0byIsInN1YiI6ImF5YXRvIiwiaWF0IjoxNjMzMjM5MzYwLCJleHAiOjE2MzMyNDIzNjB9.JuWoiN0ieQYdZtOV0JWt7ccqLFgqChCA8iqZW7ziszOYzJ7E61drniP-emwBz7i6XMH3SSQmZHEDFjAi15ic7Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8084/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProfilePicture",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwidXNlck5hbWUiOiJheWF0byIsInN1YiI6ImF5YXRvIiwiaWF0IjoxNjMzMTgxMjI4LCJleHAiOjE2MzMxODE1Mjh9.vXHb5jqJdIPmC5m8PErnVW5CO0VY7lI-rEuiVc_SRhqtmRo3XcFZVT68aHX4wpRwtoe4l9uA7OcCj5ISPJubnQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8084/profile_picture/8a8ab2a17c407e53017c407ee9a50000/profile_picture.jpg",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"profile_picture",
+						"8a8ab2a17c407e53017c407ee9a50000",
+						"profile_picture.jpg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addProfilePicture",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwidXNlck5hbWUiOiJheWF0byIsInN1YiI6ImF5YXRvIiwiaWF0IjoxNjMzMTgwMDk3LCJleHAiOjE2MzMxODAzOTd9.XY7LFQm1OEf4omKjVSPLLDKpcRrkONGHh9qCeI-NL4UruNHx7oECmMSH3E2Fi3_a4FCw4epqLr7rZ8TCd7vhiw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "profilePicture",
+							"type": "file",
+							"src": "/home/dell/Downloads/622398.jpg"
+						},
+						{
+							"key": "id",
+							"value": "8a8ab2a17c407e53017c407ee9a50000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8084/user_profile",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"user_profile"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
