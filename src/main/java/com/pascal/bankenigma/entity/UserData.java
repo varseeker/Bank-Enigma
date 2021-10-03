@@ -23,6 +23,13 @@ public class UserData {
     @OneToMany(mappedBy = "userData", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private List<Wallet> wallets = new ArrayList<>();
 
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(name = "tx_user_merchants",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "merchant_id"))
+    List<Merchant> merchants = new ArrayList<>();
+
+
     public UserData() {
     }
 
@@ -97,5 +104,13 @@ public class UserData {
 
     public void setWallets(List<Wallet> wallets) {
         this.wallets = wallets;
+    }
+
+    public List<Merchant> getMerchants() {
+        return merchants;
+    }
+
+    public void setMerchants(List<Merchant> merchants) {
+        this.merchants = merchants;
     }
 }

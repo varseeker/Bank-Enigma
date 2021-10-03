@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "mst_wallet")
@@ -17,6 +19,9 @@ public class Wallet {
 
     @Transient
     private String userDataId;
+
+    @OneToMany(mappedBy = "wallet", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    private List<Transaction> transactions = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "user_data_id", nullable = false)
@@ -82,5 +87,14 @@ public class Wallet {
 
     public void setUserData(UserData userData) {
         this.userData = userData;
+    }
+
+
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = transactions;
     }
 }
