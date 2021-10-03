@@ -67,7 +67,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"userName\":\"ayato\",\n    \"password\":\"ayato\"\n}",
+					"raw": "{\n    \"userName\":\"ahsan\",\n    \"password\":\"ahsan\",\n    \"email\":\"ibadahsan601@gmail.com\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
